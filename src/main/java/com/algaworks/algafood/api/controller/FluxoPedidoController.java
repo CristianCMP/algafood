@@ -1,33 +1,35 @@
 package com.algaworks.algafood.api.controller;
 
+import com.algaworks.algafood.api.openapi.controller.FluxoPedidoControllerOpenApi;
 import com.algaworks.algafood.domain.service.FluxoPedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/pedidos/{codigoPedido}")
-public class FluxoPedidoController {
+public class FluxoPedidoController implements FluxoPedidoControllerOpenApi {
 
-	@Autowired
-	private FluxoPedidoService fluxoPedido;
-	
-	@PutMapping("/confirmacao")
-	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void confirmar(@PathVariable String codigoPedido) {
-		fluxoPedido.confirmar(codigoPedido);
-	}
-	
-	@PutMapping("/cancelamento")
-	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void cancelar(@PathVariable String codigoPedido) {
-		fluxoPedido.cancelar(codigoPedido);
-	}
-	
-	@PutMapping("/entrega")
-	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void entregar(@PathVariable String codigoPedido) {
-		fluxoPedido.entregar(codigoPedido);
-	}
-	
+    @Autowired
+    private FluxoPedidoService fluxoPedido;
+
+    @PutMapping(path = "/confirmacao", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void confirmar(@PathVariable String codigoPedido) {
+        fluxoPedido.confirmar(codigoPedido);
+    }
+
+    @PutMapping(path = "/cancelamento", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void cancelar(@PathVariable String codigoPedido) {
+        fluxoPedido.cancelar(codigoPedido);
+    }
+
+    @PutMapping(path = "/entrega", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void entregar(@PathVariable String codigoPedido) {
+        fluxoPedido.entregar(codigoPedido);
+    }
+
 }

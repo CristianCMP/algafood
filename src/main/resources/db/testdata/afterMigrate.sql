@@ -25,8 +25,8 @@ DELETE FROM restaurante_forma_pagamento;
 DELETE FROM restaurante_usuario_responsavel;
 DELETE FROM usuario;
 DELETE FROM usuario_grupo;
-DELETE FROM pedido;
 DELETE FROM item_pedido;
+DELETE FROM pedido;
 DELETE FROM foto_produto;
 
 
@@ -65,9 +65,9 @@ VALUES
     (5, 'Lanchonete do Tio Sam', 11, 4, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, true, true, null, null, null, null, null),
     (6, 'Bar da Maria', 6, 4, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, true, true, null, null, null, null, null);
 
-INSERT INTO forma_pagamento (id, descricao) VALUES (1, 'Cartão de crédito');
-INSERT INTO forma_pagamento (id, descricao) VALUES (2, 'Cartão de débito');
-INSERT INTO forma_pagamento (id, descricao) VALUES (3, 'Dinheiro');
+INSERT INTO forma_pagamento (id, descricao, data_atualizacao) VALUES (1, 'Cartão de crédito', CURRENT_TIMESTAMP);
+INSERT INTO forma_pagamento (id, descricao, data_atualizacao) VALUES (2, 'Cartão de débito',CURRENT_TIMESTAMP);
+INSERT INTO forma_pagamento (id, descricao, data_atualizacao) VALUES (3, 'Dinheiro',CURRENT_TIMESTAMP);
 
 INSERT INTO permissao (id, nome, descricao) VALUES (1, 'CONSULTAR_COZINHAS', 'Permite consultar cozinhas');
 INSERT INTO permissao (id, nome, descricao) VALUES (2, 'EDITAR_COZINHAS', 'Permite editar cozinhas');
